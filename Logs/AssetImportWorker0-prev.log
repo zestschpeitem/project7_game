@@ -1,0 +1,219 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.25f1 (9b9180224418) revision 10195328'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19044) 64bit Professional' Language: 'ru' Physical Memory: 8142 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+D:\Kirill.documents\2020.3.25f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+D:/Kirill.documents/project7_game
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49720
+Successfully changed project path to: D:/Kirill.documents/project7_game
+D:/Kirill.documents/project7_game
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 42.32 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.25f1 (9b9180224418)
+[Subsystems] Discovering subsystems at path D:/Kirill.documents/2020.3.25f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Kirill.documents/project7_game/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Radeon RX550/550 Series (ID=0x67ff)
+    Vendor:   
+    VRAM:     4075 MB
+    Driver:   30.0.13023.1012
+Initialize mono
+Mono path[0] = 'D:/Kirill.documents/2020.3.25f1/Editor/Data/Managed'
+Mono path[1] = 'D:/Kirill.documents/2020.3.25f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'D:/Kirill.documents/2020.3.25f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56936
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: D:/Kirill.documents/2020.3.25f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001319 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 43.22 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.689 seconds
+Domain Reload Profiling:
+	ReloadAssembly (689ms)
+		BeginReloadAssembly (65ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (541ms)
+			LoadAssemblies (64ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (185ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (34ms)
+			SetupLoadedEditorAssemblies (202ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (43ms)
+				BeforeProcessingInitializeOnLoad (20ms)
+				ProcessInitializeOnLoadAttributes (99ms)
+				ProcessInitializeOnLoadMethodAttributes (35ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004363 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.43 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.459 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1460ms)
+		BeginReloadAssembly (174ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (21ms)
+		EndReloadAssembly (1216ms)
+			LoadAssemblies (382ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (332ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (48ms)
+			SetupLoadedEditorAssemblies (342ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (0ms)
+				BeforeProcessingInitializeOnLoad (85ms)
+				ProcessInitializeOnLoadAttributes (237ms)
+				ProcessInitializeOnLoadMethodAttributes (11ms)
+				AfterProcessingInitializeOnLoad (3ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (13ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.46 ms, found 2 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1502 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.7 MB.
+System memory in use after: 69.8 MB.
+
+Unloading 19 unused Assets to reduce memory usage. Loaded Objects now: 1941.
+Total: 3.193300 ms (FindLiveObjects: 0.156800 ms CreateObjectMapping: 0.039100 ms MarkObjects: 2.921800 ms  DeleteObjects: 0.074600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/scripts/Character.cs
+  artifactKey: Guid(dc019c4d952e52f40a37b85263f85858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/scripts/Character.cs using Guid(dc019c4d952e52f40a37b85263f85858) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0df5ba0d95065d757f554cc25fe7d95f') in 0.051708 seconds 
+  Import took 0.095957 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 53.910654 seconds.
+  path: Assets/prefabs/Zombie.prefab
+  artifactKey: Guid(4cae3312b14537f4bad3e9ce0cbc67b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/prefabs/Zombie.prefab using Guid(4cae3312b14537f4bad3e9ce0cbc67b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c950ae68dc946c124b70654d96525015') in 0.114909 seconds 
+  Import took 0.130143 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 129.709666 seconds.
+  path: Assets/Animation/CharacterAnimatorController.controller
+  artifactKey: Guid(9639d48ae292b004f9c3418104f2705b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/CharacterAnimatorController.controller using Guid(9639d48ae292b004f9c3418104f2705b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c43fd77f5c0dda5608c4f62ebabbcfed') in 0.009111 seconds 
+  Import took 0.021471 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 50.244190 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie
+  artifactKey: Guid(5eabbcac3f932844d83b1d52fa3d516b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie using Guid(5eabbcac3f932844d83b1d52fa3d516b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '538c097156d5f0e0d64140cf4d1b02a6') in 0.002127 seconds 
+  Import took 0.022322 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.064216 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_attack_A.FBX
+  artifactKey: Guid(41ee23486f1e28540ba9809f8694edc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_attack_A.FBX using Guid(41ee23486f1e28540ba9809f8694edc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87054ee906f0d3408ea11c15a2034219') in 0.178696 seconds 
+  Import took 0.197927 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_death_A.FBX
+  artifactKey: Guid(eb6a7e4187641364aa026764fe99b26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_death_A.FBX using Guid(eb6a7e4187641364aa026764fe99b26c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea1d98be72fc83c07a8a94207c4036d7') in 0.023627 seconds 
+  Import took 0.046105 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000236 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_run.FBX
+  artifactKey: Guid(7127da4a5abc12b47a9a29f859fa2a6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_run.FBX using Guid(7127da4a5abc12b47a9a29f859fa2a6b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '356b7852d5ffb7474507dfbb453945b8') in 0.040361 seconds 
+  Import took 0.050396 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_walk.FBX
+  artifactKey: Guid(cb06e389fe68e9549aaa4afde3c517d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_walk.FBX using Guid(cb06e389fe68e9549aaa4afde3c517d4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a09c3bfbcf5c81c1c333b5ea927964d0') in 0.009989 seconds 
+  Import took 0.031965 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000220 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_idle_A.FBX
+  artifactKey: Guid(457c3c9d2739b984c9284b437f21ea6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_idle_A.FBX using Guid(457c3c9d2739b984c9284b437f21ea6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '296a1fcf3113ea37a4a537ccbe3b4e75') in 0.017517 seconds 
+  Import took 0.020374 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000241 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_walk_rm.FBX
+  artifactKey: Guid(81d377153a3bc034db48bddeb618dbf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_walk_rm.FBX using Guid(81d377153a3bc034db48bddeb618dbf1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff23a22ac836237a7c6eb1646079c7c6') in 0.010556 seconds 
+  Import took 0.013419 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000234 seconds.
+  path: Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_run_rm.FBX
+  artifactKey: Guid(d0334405a3aa00943a641180b27874bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/ToonyTinyPeople/TT_demo/animation/zombie/Z_run_rm.FBX using Guid(d0334405a3aa00943a641180b27874bb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd53033828720ba8c5cc5dfdc11dc391e') in 0.010311 seconds 
+  Import took 0.013397 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
