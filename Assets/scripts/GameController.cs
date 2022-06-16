@@ -1,10 +1,9 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
@@ -19,12 +18,22 @@ public class GameController : MonoBehaviour
     private GameObject gameMenu;
     public TextMeshProUGUI resultText;
 
+    [SerializeField]
+    private PlaySound playSound;
+
+    [SerializeField]
+    private List<string> playSoundNames;
+
     private void Start()
     {
         waitingForInput = true;
         gameLoop = StartCoroutine(GameLoop());
         gameMenu = GameObject.Find("GameMenu");
         gameMenu.SetActive(false);
+        if (playSound)
+        {
+            playSound.PlaySoundEffect(playSoundNames[0]);
+        }
     }
 
     private IEnumerator GameLoop()
@@ -80,12 +89,16 @@ public class GameController : MonoBehaviour
         {
             resultText.color = Color.blue;
             resultText.text = "WIN!";
+            playSound.StopSoundEffect(playSoundNames[0]);
+            StartCoroutine(WinOrLoseSoundCoroutine(isVictory));
         }
 
         if (isVictory == false)
         {
             resultText.color = Color.red;
             resultText.text = "DEFEAT!";
+            playSound.StopSoundEffect(playSoundNames[0]);
+            StartCoroutine(WinOrLoseSoundCoroutine(isVictory));
         }
     }
 
@@ -142,6 +155,15 @@ public class GameController : MonoBehaviour
                 enemy.StartTurn();
 
                 yield return new WaitUntilCharacterAttack(enemy);
+                if (enemy._weapon.Weapon == Weapon.Bat)
+                {
+                    yield return new WaitForSeconds(2f);
+                }
+
+                if (enemy._weapon.Weapon == Weapon.Kulak)
+                {
+                    yield return new WaitForSeconds(3.2f);
+                }
                 Debug.Log("Enemy character: " + enemy.name + " finished turn");
                 characterComponent.IndicatorComponent.DisableTargetIndicator();
             }
@@ -250,4 +272,19 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator WinOrLoseSoundCoroutine(bool isVictory)
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (isVictory == true)
+        {
+            playSound.PlaySoundEffect(playSoundNames[1]);
+        }
+
+        if (isVictory == false)
+        {
+            playSound.PlaySoundEffect(playSoundNames[2]);
+        }
+    }
 }
+

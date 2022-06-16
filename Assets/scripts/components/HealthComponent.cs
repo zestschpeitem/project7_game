@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public sealed class HealthComponent : MonoBehaviour
@@ -23,31 +25,63 @@ public sealed class HealthComponent : MonoBehaviour
     [SerializeField]
     private bool isDead;
 
+    [SerializeField]
+    private GameObject damageEffect;
+
+    [SerializeField]
+    private PlaySound playSound;
+
+    [SerializeField]
+    private List<string> playSoundNames = new List<string>();
+
     public void ApplyDamage(int damage)
     {
-        health -= damage;
+        StartCoroutine(DamageSoundCoroutine(damage));
 
         if (health <= 0)
         {
             isDead = true;
             health = 0;
             OnDead?.Invoke();
+            StartCoroutine(DeathSoundCoroutine());
         }
 
         OnHealthChanged?.Invoke(health);
     }
 
-    public void ApplyDamage(AttackComponent attackComponent)
+    private void ShowDamageEffect()
     {
-        health -= attackComponent.Damage;
-
-        if (health <= 0)
+        if (!damageEffect)
         {
-            isDead = true;
-            health = 0;
-            OnDead?.Invoke();
+            return;
         }
 
-        OnHealthChanged?.Invoke(health);
+        foreach (var effect in damageEffect.GetComponentsInChildren<ParticleSystem>())
+        {
+            effect.Play();
+        }
+    }
+
+    private IEnumerator DamageSoundCoroutine(int damage)
+    {
+        health -= damage;
+
+        yield return new WaitForSeconds(0.2f);
+
+        ShowDamageEffect();
+        if (playSound)
+        {
+            playSound.PlaySoundEffect(playSoundNames[0]);
+        }
+    }
+
+    private IEnumerator DeathSoundCoroutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        if (playSound)
+        {
+            playSound.PlaySoundEffect(playSoundNames[1]);
+        }
     }
 }

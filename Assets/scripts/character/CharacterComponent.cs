@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using Components;
 using DefaultNamespace;
 using UnityEngine;
@@ -118,6 +120,7 @@ public class CharacterComponent : MonoBehaviour
         distance = targetPosition - transform.position;
 
         Vector3 step = direction * runSpeed;
+
         if (step.magnitude < distance.magnitude)
         {
             transform.position += step;
@@ -167,7 +170,7 @@ public class CharacterComponent : MonoBehaviour
                 if (RunTowards(originalPosition, 0.0f))
                 {
                     state = State.Idle;
-                    AttackFinished();
+                    //AttackFinished();
                 }
                 break;
 
@@ -176,12 +179,14 @@ public class CharacterComponent : MonoBehaviour
                 {
                     animator.SetTrigger(MeleeAttack);
                     state = State.Attack;
+                    AttackFinished();
                 }
 
                 if (_weapon.Weapon == Weapon.Kulak)
                 {
                     animator.SetTrigger(ZombieAttack);
                     state = State.Attack;
+                    AttackFinished();
                 }
                 break;
 
@@ -201,6 +206,4 @@ public class CharacterComponent : MonoBehaviour
     {
         attackComponent.Attack(targetHealthComponent);
     }
-
-
 }

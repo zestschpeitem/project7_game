@@ -7,9 +7,9 @@ public class MenuController : MonoBehaviour
 {
     public enum Screen
     {
+        None,
         Main,
-        Settings,
-        Game
+        Settings
     }
 
     public CanvasGroup mainScreen;
@@ -28,12 +28,14 @@ public class MenuController : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Game");
+        SetCurrentScreen(Screen.None);
+        LoadingScreen.instance.LoadScene("Game");
     }
 
     public void StartLevel2()
     {
-        SceneManager.LoadScene("Level2");
+        SetCurrentScreen(Screen.None);
+        LoadingScreen.instance.LoadScene("Level2");
     }
 
     public void OpenSettings()
@@ -51,3 +53,4 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 }
+

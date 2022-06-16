@@ -13,6 +13,15 @@ public sealed class AttackComponent : MonoBehaviour
     [SerializeField]
     private int damage;
 
+    [SerializeField]
+    private Animation attackEffect;
+
+    [SerializeField]
+    private PlaySound playSound;
+
+    [SerializeField]
+    private string playSoundName;
+
     public void Attack(GameObject enemy)
     {
         if (!enemy.TryGetComponent(out HealthComponent enemyHealth))
@@ -39,6 +48,15 @@ public sealed class AttackComponent : MonoBehaviour
         }
 
         enemy.ApplyDamage(damage);
+        if (attackEffect)
+        {
+            attackEffect.Play();
+        }
+
+        if (playSound)
+        {
+            playSound.PlaySoundEffect(playSoundName);
+        }
         this.OnAttackFinished?.Invoke();
     }
 }
