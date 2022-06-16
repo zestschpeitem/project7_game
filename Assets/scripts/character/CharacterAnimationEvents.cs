@@ -20,16 +20,6 @@ public class CharacterAnimationEvents : MonoBehaviour
     void AttackEnd()
     {
         character.SetState(CharacterComponent.State.RunningFromEnemy);
-    }
 
-void DeathEnemy()
-    {
-        character.SetState(CharacterComponent.State.Death);
     }
-
-    void Z_atrack()
-    {
-        character.SetState(CharacterComponent.State.Idle);
-    }
-
 }

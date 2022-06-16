@@ -1,45 +1,47 @@
+using System;
+using Components;
+using DefaultNamespace;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CharacterComponent : MonoBehaviour
 {
     [SerializeField] private HealthComponent healthComponent;
+    [SerializeField] private TargetIndicatorComponent targetIndicatorComponent;
     public HealthComponent HealthComponent { get => healthComponent; }
 
     [SerializeField] private AttackComponent attackComponent;
     public AttackComponent AttackComponent { get => attackComponent; }
 
+    public TargetIndicatorComponent IndicatorComponent => targetIndicatorComponent;
+
     private HealthComponent targetHealthComponent;
+
     public enum State
     {
         Idle,
         RunningToEnemy,
         RunningFromEnemy,
-        ZombieRunningToEnemy,
         BeginAttack,
         Attack,
         BeginShoot,
         Shoot,
-        Death,
-    }
-
-    public enum Weapon
-    {
-        Pistol,
-        Bat,
-        Kulak,
     }
 
     Animator animator;
     State state;
 
-    public Weapon weapon;
+    public WeaponData _weapon;
     public float runSpeed;
     public float distanceFromEnemy;
-
     Vector3 originalPosition;
     Quaternion originalRotation;
-
-
+    private static readonly int Speed = Animator.StringToHash("Speed");
+    private static readonly int zSpeed = Animator.StringToHash("zSpeed");
+    private static readonly int Death = Animator.StringToHash("Death");
+    private static readonly int MeleeAttack = Animator.StringToHash("MeleeAttack");
+    private static readonly int ZombieAttack = Animator.StringToHash("ZombieAttack");
+    private static readonly int Shoot = Animator.StringToHash("Shoot");
 
     void Start()
     {
@@ -47,6 +49,17 @@ public class CharacterComponent : MonoBehaviour
         state = State.Idle;
         originalPosition = transform.position;
         originalRotation = transform.rotation;
+        healthComponent.OnDead += OnDead;
+    }
+
+    private void OnDead()
+    {
+        animator.SetTrigger(Death);
+    }
+
+    private void OnDestroy()
+    {
+        healthComponent.OnDead -= OnDead;
     }
 
     public void SetState(State newState)
@@ -75,7 +88,7 @@ public class CharacterComponent : MonoBehaviour
     [ContextMenu("Attack")]
     void AttackEnemy()
     {
-        switch (weapon)
+        switch (_weapon.Weapon)
         {
             case Weapon.Bat:
                 state = State.RunningToEnemy;
@@ -84,7 +97,7 @@ public class CharacterComponent : MonoBehaviour
                 state = State.BeginShoot;
                 break;
             case Weapon.Kulak:
-                state = State.ZombieRunningToEnemy;
+                state = State.RunningToEnemy;
                 break;
         }
     }
@@ -121,17 +134,36 @@ public class CharacterComponent : MonoBehaviour
         {
             case State.Idle:
                 transform.rotation = originalRotation;
-                animator.SetFloat("Speed", 0.0f);
+                animator.SetFloat(Speed, 0.0f);
+                animator.SetFloat(zSpeed, 0.0f);
                 break;
 
             case State.RunningToEnemy:
-                animator.SetFloat("Speed", runSpeed);
+                if (_weapon.Weapon == Weapon.Bat)
+                {
+                    animator.SetFloat(Speed, runSpeed);
+                }
+
+                if (_weapon.Weapon == Weapon.Kulak)
+                {
+                    animator.SetFloat(zSpeed, runSpeed);
+                }
+
                 if (RunTowards(targetHealthComponent.transform.position, distanceFromEnemy))
                     state = State.BeginAttack;
                 break;
 
             case State.RunningFromEnemy:
-                animator.SetFloat("Speed", runSpeed);
+                if (_weapon.Weapon == Weapon.Bat)
+                {
+                    animator.SetFloat(Speed, runSpeed);
+                }
+
+                if (_weapon.Weapon == Weapon.Kulak)
+                {
+                    animator.SetFloat(zSpeed, runSpeed);
+                }
+
                 if (RunTowards(originalPosition, 0.0f))
                 {
                     state = State.Idle;
@@ -139,54 +171,36 @@ public class CharacterComponent : MonoBehaviour
                 }
                 break;
 
-            case State.ZombieRunningToEnemy:
-                animator.SetFloat("ZombieSpeed", runSpeed);
-                if (RunTowards(targetHealthComponent.transform.position, distanceFromEnemy))
-                    state = State.BeginAttack;
-                break;
-
             case State.BeginAttack:
-                animator.SetTrigger("MeleeAttack");
-                state = State.Attack;
-                break;
-
-            case State.Attack:
-                if(weapon == Weapon.Kulak)
+                if (_weapon.Weapon == Weapon.Bat)
                 {
-                    animator.SetFloat("ZombieSpeed", 0.0f);
+                    animator.SetTrigger(MeleeAttack);
+                    state = State.Attack;
+                }
+
+                if (_weapon.Weapon == Weapon.Kulak)
+                {
+                    animator.SetTrigger(ZombieAttack);
+                    state = State.Attack;
                 }
                 break;
 
+            case State.Attack:
+                break;
+
             case State.BeginShoot:
-                animator.SetTrigger("Shoot");
+                animator.SetTrigger(Shoot);
                 state = State.Shoot;
                 break;
 
             case State.Shoot:
                 break;
-
-            case State.Death:
-                animator.SetTrigger("Death");
-                break;
-
         }
     }
     public void AttackFinished()
     {
         attackComponent.Attack(targetHealthComponent);
     }
-    private void CharacterDeath()
-    {
-        state = State.Death;
-    }
 
-    private void OnEnable()
-    {
-        healthComponent.OnDead += CharacterDeath;
-    }
 
-    private void OnDisable()
-    {
-        healthComponent.OnDead -= CharacterDeath;
-    }
 }

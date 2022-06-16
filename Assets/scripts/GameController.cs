@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
+using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -9,10 +13,18 @@ public class GameController : MonoBehaviour
     [SerializeField] private CharacterComponent[] enemyCharacters;
 
     private Coroutine gameLoop;
+    private bool waitingForInput;
+    private CharacterComponent currentTarget;
+    private bool paused = false;
+    private GameObject gameMenu;
+    public TextMeshProUGUI resultText;
 
     private void Start()
     {
+        waitingForInput = true;
         gameLoop = StartCoroutine(GameLoop());
+        gameMenu = GameObject.Find("GameMenu");
+        gameMenu.SetActive(false);
     }
 
     private IEnumerator GameLoop()
@@ -27,10 +39,15 @@ public class GameController : MonoBehaviour
         GameOver();
     }
 
-
     private CharacterComponent GetTarget(CharacterComponent[] characterComponents)
     {
-        return characterComponents.FirstOrDefault(c => !c.HealthComponent.IsDead);
+        var characterComponent = characterComponents.FirstOrDefault(c => !c.HealthComponent.IsDead);
+        if (characterComponent != null)
+        {
+            characterComponent.IndicatorComponent.EnableTargetIndicator();
+        }
+
+        return characterComponent;
     }
 
     private void GameOver()
@@ -59,59 +76,178 @@ public class GameController : MonoBehaviour
         isVictory = isPlayerCharacherAlive && !isEnemyCharacherAlive;
 
         Debug.Log(isVictory ? "Victory" : "Defeat");
+        if (isVictory == true)
+        {
+            resultText.color = Color.blue;
+            resultText.text = "WIN!";
+        }
+
+        if (isVictory == false)
+        {
+            resultText.color = Color.red;
+            resultText.text = "DEFEAT!";
+        }
     }
 
-    private IEnumerator Turn(CharacterComponent[] playerCharacters, CharacterComponent[] enemyCharacters)
+    private IEnumerator Turn(CharacterComponent[] playerCharacters, CharacterComponent[]
+        enemyCharacters)
     {
         int turnCounter = 0;
         while (true)
         {
-            for (int i = 0; i < playerCharacters.Length; i++)
+            foreach (var player in playerCharacters)
             {
-                if (playerCharacters[i].HealthComponent.IsDead)
+
+                if (currentTarget == null)
                 {
-                    Debug.Log("Character: " + playerCharacters[i].name + " is dead");
+                    currentTarget = GetTarget(enemyCharacters);
+                }
+
+                while (waitingForInput)
+                {
+                    yield return null;
+                }
+
+                if (player.HealthComponent.IsDead)
+                {
+                    Debug.Log("Character: " + player.name + " is dead");
                     continue;
                 }
 
-                playerCharacters[i].SetTarget(GetTarget(enemyCharacters).HealthComponent);
+                player.SetTarget(currentTarget.HealthComponent);
 
                 //TODO: hotfix
                 yield return null; // ugly fix need to investigate
-                playerCharacters[i].StartTurn();
+                player.StartTurn();
+                yield return new WaitUntilCharacterAttack(player);
 
-
-
-
-                yield return new WaitUntilCharacterAttack(playerCharacters[i]);
-
-
-
-
-                Debug.Log("Character: " + playerCharacters[i].name + " finished turn");
+                Debug.Log("Character: " + player.name + " finished turn");
+                waitingForInput = true;
+                currentTarget.IndicatorComponent.DisableTargetIndicator();
+                currentTarget = null;
             }
 
-            yield return new WaitForSeconds(.5f);
 
-            for (int i = 0; i < enemyCharacters.Length; i++)
+            yield return new WaitForSeconds(.5f);
+            foreach (var enemy in enemyCharacters)
             {
-                if (enemyCharacters[i].HealthComponent.IsDead)
+                if (enemy.HealthComponent.IsDead)
                 {
-                    Debug.Log("Enemy character: " + enemyCharacters[i].name + " is dead");
+                    Debug.Log("Enemy character: " + enemy.name + " is dead");
                     continue;
                 }
 
-                enemyCharacters[i].SetTarget(GetTarget(playerCharacters).HealthComponent);
-                enemyCharacters[i].StartTurn();
+                var characterComponent = GetTarget(playerCharacters);
+                enemy.SetTarget(characterComponent.HealthComponent);
+                enemy.StartTurn();
 
-                yield return new WaitUntilCharacterAttack(enemyCharacters[i]);
-                Debug.Log("Enemy character: " + enemyCharacters[i].name + " finished turn");
+                yield return new WaitUntilCharacterAttack(enemy);
+                Debug.Log("Enemy character: " + enemy.name + " finished turn");
+                characterComponent.IndicatorComponent.DisableTargetIndicator();
             }
+        }
+    }
 
-            yield return new WaitForSeconds(.5f);
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            waitingForInput = false;
+        }
 
-            turnCounter++;
-            Debug.Log("Turn #" + turnCounter + " has been ended");
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            NextTarget();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!paused)
+            {
+                Time.timeScale = 0;
+                paused = true;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                paused = false;
+            }
+        }
+    }
+
+    public void PlayerAttack()
+    {
+        waitingForInput = false;
+    }
+
+    public void SwitchEnemy()
+    {
+        NextTarget();
+    }
+
+    public void OpenGameMenu()
+    {
+        if (!paused)
+        {
+            Time.timeScale = 0;
+            paused = true;
+            gameMenu.SetActive(true);
+        }
+    }
+
+    public void ContinueGame()
+    {
+        if (paused)
+        {
+            Time.timeScale = 1;
+            paused = false;
+            gameMenu.SetActive(false);
+        }
+    }
+
+    public void OpenMainMenu()
+    {
+        if (paused)
+        {
+            Time.timeScale = 1;
+            paused = false;
+            gameMenu.SetActive(false);
+            SceneManager.LoadScene("Scenes/Menu");
+        }
+        else
+        {
+            SceneManager.LoadScene("Scenes/Menu");
+        }
+    }
+
+    public void StartGame()
+    {
+        if (paused)
+        {
+            Time.timeScale = 1;
+            paused = false;
+            gameMenu.SetActive(false);
+            SceneManager.LoadScene("Scenes/Game");
+        }
+        else
+        {
+            SceneManager.LoadScene("Scenes/Game");
+        }
+    }
+
+    private void NextTarget()
+    {
+        int index = Array.IndexOf(enemyCharacters, currentTarget);
+        for (int i = 1; i < enemyCharacters.Length; i++)
+        {
+            int next = (index + i) % enemyCharacters.Length;
+            if (!enemyCharacters[next].HealthComponent.IsDead)
+            {
+                currentTarget.IndicatorComponent.DisableTargetIndicator();
+                currentTarget = enemyCharacters[next];
+                currentTarget.IndicatorComponent.EnableTargetIndicator();
+                return;
+            }
         }
     }
 }
