@@ -52,26 +52,26 @@
      <Compile Include="Assets\Scripts\GameController.cs" />
      <Compile Include="Assets\Scripts\ResultText.cs" />
      <Compile Include="Assets\Scripts\Character\Weapon.cs" />
+     <Compile Include="Assets\Scripts\Audio\PlaySound.cs" />
+     <Compile Include="Assets\Scripts\LoadingScreen.cs" />
      <Compile Include="Assets\Scripts\Components\AttackComponent.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterComponent.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
      <Compile Include="Assets\Scripts\Components\HealthIndicatorComponent.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
      <Compile Include="Assets\Scripts\Components\TargetIndicatorComponent.cs" />
+     <Compile Include="Assets\Scripts\Audio\SoundSettings.cs" />
      <Compile Include="Assets\Scripts\Components\LookAtCameraComponent.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
      <Compile Include="Assets\Scripts\Coroutines\WaitUntilCharacterAttack.cs" />
+     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
+     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
      <Compile Include="Assets\Scripts\WeaponData.cs" />
      <Compile Include="Assets\Scripts\Components\HealthComponent.cs" />
      <Compile Include="Assets\Scripts\Utility.cs" />
      <Compile Include="Assets\Scripts\Character\CharacterAnimationEvents.cs" />
-     <Compile Include="Assets\Scripts\Audio\PlaySound.cs" />
-     <Compile Include="Assets\Scripts\Audio\SoundSettings.cs" />
-     <Compile Include="Assets\Scripts\LoadingScreen.cs" />
-     <Compile Include="Assets\RainMaker\Demo\DemoScript2D.cs" />
-     <Compile Include="Assets\RainMaker\Prefab\BaseRainScript.cs" />
-     <Compile Include="Assets\RainMaker\Demo\DemoScriptStartRainOnSpaceBar.cs" />
-     <Compile Include="Assets\RainMaker\Prefab\RainCollision.cs" />
-     <Compile Include="Assets\RainMaker\Demo\DemoScript.cs" />
-     <Compile Include="Assets\RainMaker\Prefab\RainScript2D.cs" />
-     <Compile Include="Assets\RainMaker\Prefab\RainScript.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
@@ -668,6 +668,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -683,6 +686,9 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -694,12 +700,6 @@
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -651,6 +651,9 @@
  <Reference Include="Unity.VSCode.Editor">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Runtime">
+ <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
@@ -666,6 +669,9 @@
  <Reference Include="Unity.TextMeshPro">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.Postprocessing.Editor">
+ <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEditor.UI">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
  </Reference>
@@ -677,12 +683,6 @@
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Editor">
- <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Editor.dll</HintPath>
- </Reference>
- <Reference Include="Unity.Postprocessing.Runtime">
- <HintPath>D:/Kirill.documents/project7_game/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
