@@ -119,10 +119,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
-  m_MinSize: {x: 679, y: 492}
-  m_MaxSize: {x: 14002, y: 14042}
+  m_MinSize: {x: 678, y: 342}
+  m_MaxSize: {x: 12003, y: 8042}
   vertical: 0
-  controlID: 98
+  controlID: 66
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1497
     height: 947
-  m_MinSize: {x: 403, y: 492}
-  m_MaxSize: {x: 10001, y: 14042}
+  m_MinSize: {x: 403, y: 342}
+  m_MaxSize: {x: 8003, y: 8042}
   vertical: 1
-  controlID: 99
+  controlID: 67
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -172,7 +172,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 100
+  controlID: 19
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 1
   m_Script: {fileID: 12006, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: ProjectBrowser
+  m_Name: AudioMixerWindow
   m_EditorClassIdentifier: 
   m_Children: []
   m_Position:
@@ -247,15 +247,15 @@ MonoBehaviour:
     y: 673
     width: 1497
     height: 274
-  m_MinSize: {x: 231, y: 271}
-  m_MaxSize: {x: 10001, y: 10021}
-  m_ActualView: {fileID: 19}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 12}
   m_Panes:
   - {fileID: 19}
   - {fileID: 20}
   - {fileID: 14}
   - {fileID: 12}
-  m_Selected: 0
+  m_Selected: 3
   m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
@@ -276,8 +276,8 @@ MonoBehaviour:
     y: 0
     width: 423
     height: 947
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 21}
   m_Panes:
   - {fileID: 21}
@@ -310,8 +310,8 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 17318
+    m_SelectedIDs: 32440000
+    m_LastClickedID: 17458
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -427,7 +427,7 @@ MonoBehaviour:
       oldMaxSizes: 
       oldSplitSize: 0
     m_HorizontalSplitter:
-      ID: 408
+      ID: 9456
       splitterInitialOffset: 0
       currentActiveSplitter: -1
       realSizes:
@@ -581,9 +581,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 39.012367, y: -0.60798883, z: -5.918915}
+    m_Target: {x: 42.204712, y: 7.098545, z: 13.301601}
     speed: 2
-    m_Value: {x: 39.012367, y: -0.60798883, z: -5.918915}
+    m_Value: {x: 42.204712, y: 7.098545, z: 13.301601}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -630,13 +630,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.102355674, y: -0.7238017, z: 0.110000655, w: 0.67347705}
+    m_Target: {x: 0.06527889, y: -0.002393779, z: 0.00015178452, w: 0.9978834}
     speed: 2
-    m_Value: {x: 0.10235378, y: -0.7237883, z: 0.10999862, w: 0.6734646}
+    m_Value: {x: 0.06527764, y: -0.0023937335, z: 0.00015178163, w: 0.99786437}
   m_Size:
-    m_Target: 9.687972
+    m_Target: 4.297526
     speed: 2
-    m_Value: 9.687972
+    m_Value: 4.297526
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -691,7 +691,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 46fbffffe23e0000383f00004e3f0000a63f0000de3f0000f03f000000400000
+      m_ExpandedIDs: f6c9ffff1accffffd8d3ffffe0e8ffff16ecffff50efffff46fbfffffa3e0000203f00006c3f00007a3f0000b63f0000d23f000090450000b245000046460000ca460000dc460000f84600003c470000624700007247000088470000ac470000c4470000d8470000dc4700004a4800006848000082480000b04800002456000072560000e25600007a570000f65700006c580000b8580000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -867,22 +867,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefabs
+    - Assets/Sounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs
+  - Assets/Sounds
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Kirill.documents\project7_game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: 30440000
-    m_LastClickedID: 17456
-    m_ExpandedIDs: 0000000022440000244400002644000000ca9a3b
+    scrollPos: {x: 0, y: 87}
+    m_SelectedIDs: f8440000
+    m_LastClickedID: 17656
+    m_ExpandedIDs: 00000000c2440000c4440000c6440000f844000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -910,7 +910,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000224400002444000026440000
+    m_ExpandedIDs: 00000000c2440000c4440000c6440000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -935,10 +935,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: 32440000
+    m_LastClickedInstanceID: 17458
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c623000000000000844200004a5100008a510000a6430000
+    m_ExpandedInstanceIDs: c623000000000000844200004a5100008a510000a6430000584b00000c450000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
